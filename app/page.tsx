@@ -1,13 +1,17 @@
 import LandingPageFirstSection from "@/components/LandingPageFirstSection";
+import LandingPageLastSection from "@/components/LandingPageLastSection";
 import LandingPageSecondSection from "@/components/LandingPageSecondSection";
-import NavBar from "@/components/NavBar";
+import LandingPageThirdSection from "@/components/LandingPageThirdSection";
+import LandingPageUpperSection from "@/components/LandingPageUpperSection";
 
 export default function Home() {
 	return (
 		<main>
-			<NavBar />
+			<LandingPageUpperSection />
 			<LandingPageFirstSection />
 			<LandingPageSecondSection />
+			<LandingPageThirdSection />
+			<LandingPageLastSection />
 		</main>
 	);
 }

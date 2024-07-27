@@ -104,3 +104,113 @@ export function HomeIcon(props: React.SVGProps<SVGSVGElement>) {
 		</svg>
 	);
 }
+
+export function PawPrintIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			// width="24"
+			// height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<circle cx="11" cy="4" r="2" />
+			<circle cx="18" cy="8" r="2" />
+			<circle cx="20" cy="16" r="2" />
+			<path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
+		</svg>
+	);
+}
+
+export function PersonAvatarIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<circle cx="12" cy="8" r="4" /> {/* Head */}
+			<path d="M12 14c-4 0-6 2-6 6v1h12v-1c0-4-2-6-6-6z" /> {/* Body */}
+		</svg>
+	);
+}
+
+export function PuppyAvatarIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<circle cx="12" cy="10" r="6" /> {/* Head */}
+			<path d="M12 16c-4 0-6 2-6 6v1h12v-1c0-4-2-6-6-6z" /> {/* Body */}
+			<path d="M10 8l-1-2" /> {/* Ear */}
+			<path d="M14 8l1-2" /> {/* Ear */}
+		</svg>
+	);
+}
+
+export function AdultDogAvatarIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<circle cx="12" cy="10" r="8" /> {/* Head */}
+			<path d="M12 18c-5 0-7 3-7 7v1h14v-1c0-4-2-7-7-7z" /> {/* Body */}
+			<path d="M10 8l-1.5-2" /> {/* Ear */}
+			<path d="M14 8l1.5-2" /> {/* Ear */}
+		</svg>
+	);
+}
+
+export function SeniorDogAvatarIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<circle cx="12" cy="10" r="8" /> {/* Head */}
+			<path d="M12 18c-5 0-7 3-7 7v1h14v-1c0-4-2-7-7-7z" /> {/* Body */}
+			<path d="M9 8l-2-3" /> {/* Ear */}
+			<path d="M15 8l2-3" /> {/* Ear */}
+			<path d="M10 14l-1-2" /> {/* Wrinkle */}
+			<path d="M14 14l1-2" /> {/* Wrinkle */}
+		</svg>
+	);
+}

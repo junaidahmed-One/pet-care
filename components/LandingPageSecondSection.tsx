@@ -1,5 +1,9 @@
 import CardComp from "./CardComp";
-import { HomeIcon, ScissorsIcon, StethoscopeIcon } from "./Icons";
+import {
+	AdultDogAvatarIcon,
+	PuppyAvatarIcon,
+	SeniorDogAvatarIcon,
+} from "./Icons";
 
 export default function LandingPageSecondSection() {
 	return (
@@ -17,7 +21,7 @@ export default function LandingPageSecondSection() {
 					}
 					buttonInp={"Customize"}
 				>
-					<ScissorsIcon className="w-8 h-8 text-green-600" />
+					<PuppyAvatarIcon className="w-8 h-8 text-green-600" />
 				</CardComp>
 				<CardComp
 					title={"Adult Formula"}
@@ -26,7 +30,7 @@ export default function LandingPageSecondSection() {
 					}
 					buttonInp={"Customize"}
 				>
-					<StethoscopeIcon className="w-8 h-8 text-green-600" />
+					<AdultDogAvatarIcon className="w-8 h-8 text-green-600" />
 				</CardComp>
 				<CardComp
 					title={"Senior Formula"}
@@ -35,7 +39,7 @@ export default function LandingPageSecondSection() {
 					}
 					buttonInp={"Customize"}
 				>
-					<HomeIcon className="w-8 h-8 text-green-600" />
+					<SeniorDogAvatarIcon className="w-8 h-8 text-green-600" />
 				</CardComp>
 			</div>
 		</div>
