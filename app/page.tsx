@@ -1,5 +1,13 @@
-import Image from "next/image";
+import LandingPageFirstSection from "@/components/LandingPageFirstSection";
+import LandingPageSecondSection from "@/components/LandingPageSecondSection";
+import NavBar from "@/components/NavBar";
 
 export default function Home() {
-	return <main>Hello from Next App</main>;
+	return (
+		<main>
+			<NavBar />
+			<LandingPageFirstSection />
+			<LandingPageSecondSection />
+		</main>
+	);
 }
