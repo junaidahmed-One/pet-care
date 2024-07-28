@@ -5,7 +5,7 @@ const CardComp: React.FC<React.PropsWithChildren<CardType>> = ({
 	buttonInp,
 }) => {
 	return (
-		<div className="grid border rounded-md p-6 bg-white">
+		<div className="transition ease-in-out duration-700 hover:-translate-y-1 hover:scale-110 grid border rounded-md p-6 bg-white">
 			<div className="flex justify-center items-center mb-4">
 				{children}
 			</div>

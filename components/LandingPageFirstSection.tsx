@@ -3,7 +3,7 @@ import { HomeIcon, ScissorsIcon, StethoscopeIcon, TruckIcon } from "./Icons";
 
 export default function LandingPageFirstSection() {
 	return (
-		<div className="m-10 text-center">
+		<section className="m-10 text-center">
 			<h3 className="text-2xl font-bold">Our Pet Services</h3>
 			<p className="text-gray-400 m-5">
 				Explore our wide range of pet services to keep your furry
@@ -47,6 +47,6 @@ export default function LandingPageFirstSection() {
 					<TruckIcon className="w-8 h-8 text-green-600" />
 				</CardComp>
 			</div>
-		</div>
+		</section>
 	);
 }

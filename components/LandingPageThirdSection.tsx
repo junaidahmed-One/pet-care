@@ -3,7 +3,7 @@ import ReviewCard from "./ReviewCard";
 
 export default function LandingPageThirdSection() {
 	return (
-		<div className="m-10 text-center">
+		<section className="m-10 text-center">
 			<h3 className="text-2xl font-bold">What Our Customers Say</h3>
 			<p className="text-gray-400 m-5">
 				Hear from our satisfied customers about their experience with
@@ -29,6 +29,6 @@ export default function LandingPageThirdSection() {
 					<PersonAvatarIcon className="w-8 h-8 text-gray-500" />
 				</ReviewCard>
 			</div>
-		</div>
+		</section>
 	);
 }

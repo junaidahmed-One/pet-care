@@ -7,7 +7,7 @@ import {
 
 export default function LandingPageSecondSection() {
 	return (
-		<div className="text-center bg-gray-300 p-5">
+		<section className="text-center bg-gray-300 p-5">
 			<h3 className="text-2xl font-bold">Nutritious Pet Food</h3>
 			<p className="text-gray-600 m-5">
 				{`Discover our premium pet food options tailored to your furry
@@ -42,6 +42,6 @@ export default function LandingPageSecondSection() {
 					<SeniorDogAvatarIcon className="w-8 h-8 text-green-600" />
 				</CardComp>
 			</div>
-		</div>
+		</section>
 	);
 }
