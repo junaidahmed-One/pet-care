@@ -5,13 +5,13 @@ import LandingPageThirdSection from "@/components/LandingPageThirdSection";
 import LandingPageUpperSection from "@/components/LandingPageUpperSection";
 
 export default function Home() {
-	return (
-		<main>
-			<LandingPageUpperSection />
-			<LandingPageFirstSection />
-			<LandingPageSecondSection />
-			<LandingPageThirdSection />
-			<LandingPageLastSection />
-		</main>
-	);
+  return (
+    <main>
+      <LandingPageUpperSection />
+      <LandingPageFirstSection />
+      <LandingPageSecondSection />
+      <LandingPageThirdSection />
+      <LandingPageLastSection />
+    </main>
+  );
 }

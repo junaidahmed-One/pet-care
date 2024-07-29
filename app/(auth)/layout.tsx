@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function AuthRootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return <div className="bg-green-600 h-screen">{children}</div>;
+  return <div className="h-screen bg-green-600">{children}</div>;
 }

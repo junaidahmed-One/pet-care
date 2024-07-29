@@ -1,23 +1,21 @@
 const CardComp: React.FC<React.PropsWithChildren<CardType>> = ({
-	children,
-	title,
-	desc,
-	buttonInp,
+  children,
+  title,
+  desc,
+  buttonInp,
 }) => {
-	return (
-		<div className="transition ease-in-out duration-700 hover:-translate-y-1 hover:scale-110 grid border rounded-md p-6 bg-white">
-			<div className="flex justify-center items-center mb-4">
-				{children}
-			</div>
-			<p className="text-lg font-extrabold text-center">{title}</p>
-			<p className="text-gray-400 text-center">{desc}</p>
-			<div className="flex justify-center">
-				<button className="bg-green-600 text-white text-center justify-center rounded-md text-sm font-medium sm:w-24 sm:h-10 w-24 h-10">
-					{buttonInp}
-				</button>
-			</div>
-		</div>
-	);
+  return (
+    <div className="grid rounded-md border bg-white p-6 transition duration-700 ease-in-out hover:-translate-y-1 hover:scale-110">
+      <div className="mb-4 flex items-center justify-center">{children}</div>
+      <p className="text-center text-lg font-extrabold">{title}</p>
+      <p className="text-center text-gray-400">{desc}</p>
+      <div className="flex justify-center">
+        <button className="h-10 w-24 justify-center rounded-md bg-green-600 text-center text-sm font-medium text-white sm:h-10 sm:w-24">
+          {buttonInp}
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default CardComp;
