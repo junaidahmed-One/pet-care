@@ -5,9 +5,11 @@ import doggy from "../public/landingpagedog.jpeg";
 import { useState } from "react";
 import { PawPrintIcon } from "./Icons";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LandingPageUpperSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,7 +32,12 @@ export default function LandingPageUpperSection() {
           <Link href={"#"} className="text-md text-white hover:underline">
             Pet Food
           </Link>
-          <button className="text-md items-center justify-center rounded-md bg-slate-100 px-4 py-2 text-sm text-green-600 shadow transition-colors hover:bg-green-600/90 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2">
+          <button
+            className="text-md items-center justify-center rounded-md bg-slate-100 px-4 py-2 text-sm text-green-600 shadow transition-colors hover:bg-green-600/90 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+            onClick={() => {
+              router.push("/signup");
+            }}
+          >
             Sign Up
           </button>
         </nav>
@@ -67,7 +74,12 @@ export default function LandingPageUpperSection() {
           <Link href={"#"} className="text-md text-white hover:underline">
             Pet Food
           </Link>
-          <button className="text-md items-center justify-center rounded-md bg-slate-100 px-4 py-2 text-sm text-green-600 shadow transition-colors hover:bg-green-600/90 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2">
+          <button
+            className="text-md items-center justify-center rounded-md bg-slate-100 px-4 py-2 text-sm text-green-600 shadow transition-colors hover:bg-green-600/90 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+            onClick={() => {
+              router.push("/signup");
+            }}
+          >
             Sign Up
           </button>
         </div>
@@ -80,7 +92,12 @@ export default function LandingPageUpperSection() {
             services and premium pet food.
           </p>
           <div className="flex space-x-4">
-            <button className="focus:ring-primary items-center rounded-md bg-slate-100 px-4 py-2 text-green-600 shadow transition-colors hover:bg-green-600/90 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2">
+            <button
+              className="focus:ring-primary items-center rounded-md bg-slate-100 px-4 py-2 text-green-600 shadow transition-colors hover:bg-green-600/90 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+              onClick={() => {
+                router.push("/signup");
+              }}
+            >
               Get Started
             </button>
             <button className="rounded-md border px-4 py-2 text-white">
