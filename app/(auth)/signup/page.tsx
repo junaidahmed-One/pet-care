@@ -44,7 +44,7 @@ export default function SignUp() {
             />
           </div>
           <button className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2">
-            Login
+            Register
           </button>
           <div className="text-center text-sm">
             Already have an account?{" "}
