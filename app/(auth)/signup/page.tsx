@@ -1,7 +1,18 @@
-import Input from "@/components/InputText";
+"use client";
+
+import { signUp } from "@/app/actions/user";
 import Link from "next/link";
+import { useState } from "react";
+
+async function addData(fullname: string, email: string, password: string) {
+  await signUp(fullname, email, password);
+}
 
 export default function SignUp() {
+  const [fullname, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="rounded-md">
       <div className="flex h-screen justify-center">
@@ -17,6 +28,10 @@ export default function SignUp() {
               id="fullName"
               placeholder="Enter Full Name"
               className="placeholder:text-muted-foreground h-10 rounded-md border focus:outline-green-600"
+              onChange={(e) => {
+                e.preventDefault();
+                setFullName(e.target.value);
+              }}
             />
           </div>
           <div className="flex flex-col">
@@ -29,6 +44,10 @@ export default function SignUp() {
               id="emailfield"
               placeholder="Enter Email ID"
               className="placeholder:text-muted-foreground h-10 rounded-md border focus:outline-green-600"
+              onChange={(e) => {
+                e.preventDefault();
+                setEmail(e.target.value);
+              }}
             />
           </div>
           <div className="flex flex-col">
@@ -41,9 +60,19 @@ export default function SignUp() {
               id="passField"
               placeholder="Enter Password"
               className="placeholder:text-muted-foreground h-10 rounded-md border focus:outline-green-600"
+              onChange={(e) => {
+                e.preventDefault();
+                setPassword(e.target.value);
+              }}
             />
           </div>
-          <button className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2">
+          <button
+            className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+            onClick={async () => {
+              const res = await addData(fullname, email, password);
+              console.log(res);
+            }}
+          >
             Register
           </button>
           <div className="text-center text-sm">
