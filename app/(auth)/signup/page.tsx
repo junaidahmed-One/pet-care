@@ -1,14 +1,31 @@
 "use client";
 
-import { signUp } from "@/app/actions/user";
 import Link from "next/link";
 import { useState } from "react";
+import axios from "axios";
 
-async function addData(fullname: string, email: string, password: string) {
-  await signUp(fullname, email, password);
+interface RequestType {
+  email: string;
+  password: string;
+  fullname: string;
+}
+
+async function addData(req: RequestType) {
+  const signupResp = await axios.post("api/user/signup", {
+    email: req.email,
+    password: req.password,
+    fullname: req.password,
+  });
+  return signupResp;
 }
 
 export default function SignUp() {
+  const [request, setRequest] = useState({
+    email: "",
+    password: "",
+    fullname: "",
+  });
+
   const [fullname, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -69,7 +86,8 @@ export default function SignUp() {
           <button
             className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={async () => {
-              const res = await addData(fullname, email, password);
+              setRequest({ fullname, email, password });
+              const res = await addData(request);
               console.log(res);
             }}
           >
