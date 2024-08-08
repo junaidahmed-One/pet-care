@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface RequestType {
   email: string;
@@ -11,21 +12,21 @@ interface RequestType {
 }
 
 async function addData(req: RequestType) {
-  const signupResp = await axios.post("api/user/signup", {
-    email: req.email,
-    password: req.password,
-    fullname: req.password,
-  });
-  return signupResp;
+  try {
+    const signupResp = await axios.post("/api/user/signup", {
+      email: req.email,
+      password: req.password,
+      fullname: req.fullname,
+    });
+    return signupResp;
+  } catch (error) {
+    console.error("Error during signup request:", error);
+    throw error;
+  }
 }
 
 export default function SignUp() {
-  const [request, setRequest] = useState({
-    email: "",
-    password: "",
-    fullname: "",
-  });
-
+  const router = useRouter();
   const [fullname, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -86,8 +87,13 @@ export default function SignUp() {
           <button
             className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={async () => {
-              setRequest({ fullname, email, password });
-              const res = await addData(request);
+              const res = await addData({ fullname, email, password });
+              console.log(res.status);
+              if (res.status == 201) {
+                router.push("/signin");
+              } else {
+                router.push("/");
+              }
               console.log(res);
             }}
           >

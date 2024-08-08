@@ -1,5 +1,3 @@
-"use server";
-
 import prisma from "@/db";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
@@ -13,7 +11,9 @@ const user_signup_schema = z.object({
 });
 
 export async function POST(req: NextRequest) {
-  const reqBody = user_signup_schema.safeParse(req.json());
+  const req_data = await req.json();
+  console.log("req_body : ", req_data);
+  const reqBody = user_signup_schema.safeParse(req_data);
 
   if (!reqBody.success) {
     return NextResponse.json(
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
       { status: 400 }
     );
   }
-
+  console.log(reqBody.data);
   const { email, password, fullname } = reqBody.data;
 
   try {
