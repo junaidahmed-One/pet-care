@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { toast, Toaster } from "sonner";
 
 interface RequestType {
   email: string;
@@ -20,8 +21,7 @@ async function addData(req: RequestType) {
     });
     return signupResp;
   } catch (error) {
-    console.error("Error during signup request:", error);
-    throw error;
+    return error;
   }
 }
 
@@ -87,12 +87,15 @@ export default function SignUp() {
           <button
             className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={async () => {
-              const res = await addData({ fullname, email, password });
+              const res: any = await addData({ fullname, email, password });
               console.log(res.status);
               if (res.status == 201) {
+                toast.success("Signing in...", {
+                  duration: 2000,
+                });
                 router.push("/signin");
               } else {
-                router.push("/");
+                toast.error("Error signing in! Please try again...");
               }
               console.log(res);
             }}

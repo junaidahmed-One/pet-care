@@ -1,6 +1,7 @@
 import { PawPrintIcon } from "@/components/Icons";
 import Link from "next/link";
 import React from "react";
+import { Toaster } from "sonner";
 
 export default function AuthRootLayout({
   children,
@@ -15,6 +16,7 @@ export default function AuthRootLayout({
           <Link href={"/"}>PetCare</Link>
         </span>
       </div>
+      <Toaster richColors />
       {children}
     </div>
   );

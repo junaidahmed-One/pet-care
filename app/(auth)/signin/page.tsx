@@ -4,6 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 
 interface SigninRequestType {
   email: string;
@@ -19,7 +20,7 @@ async function signin(req: SigninRequestType) {
     return signinResp;
   } catch (error) {
     console.error("Error during signin request:", error);
-    throw error;
+    return error;
   }
 }
 
@@ -68,12 +69,14 @@ export default function SignIn() {
           <button
             className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={async () => {
-              const res = await signin({ email, password });
+              const res: any = await signin({ email, password });
               console.log(res.status);
               if (res.status == 200) {
-                router.push("/");
+                toast.success("Signin in...", {
+                  duration: 1500,
+                });
               } else {
-                router.push("/signup");
+                toast.error("Error Signin in...");
               }
               console.log(res);
             }}

@@ -13,7 +13,7 @@ const user_signup_schema = z.object({
 
 export async function POST(req: NextRequest) {
   const req_data = await req.json();
-  console.log("req_body : ", req_data);
+  //console.log("req_body : ", req_data);
   const reqBody = user_signup_schema.safeParse(req_data);
 
   if (!reqBody.success) {
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
       { status: 400 }
     );
   }
-  console.log(reqBody.data);
+  //console.log(reqBody.data);
   const { email, password, fullname } = reqBody.data;
 
   const hash_salt = await bcrypt.genSalt(10);
