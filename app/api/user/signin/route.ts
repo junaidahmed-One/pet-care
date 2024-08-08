@@ -2,7 +2,6 @@ import prisma from "@/db";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
-import { error } from "console";
 
 const user_signin_schema = z.object({
   email: z.string().email(),
@@ -21,7 +20,6 @@ export async function POST(req: Request) {
   if (!parsed_data.success) {
     return NextResponse.json({ error: "Enter right email" }, { status: 400 });
   }
-
   try {
     const userDetails = await prisma.user.findFirst({
       where: {
