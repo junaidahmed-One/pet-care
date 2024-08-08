@@ -44,10 +44,13 @@ export async function POST(req: Request) {
       );
     }
 
-    return NextResponse.json({
-      id: userDetails.id,
-      FullName: userDetails.fullname,
-    });
+    return NextResponse.json(
+      {
+        id: userDetails.id,
+        FullName: userDetails.fullname,
+      },
+      { status: 200 }
+    );
   } catch (e) {
     console.error(e);
   }

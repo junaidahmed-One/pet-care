@@ -1,6 +1,33 @@
+"use client";
+
+import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+interface SigninRequestType {
+  email: string;
+  password: string;
+}
+
+async function signin(req: SigninRequestType) {
+  try {
+    const signinResp = await axios.post("/api/user/signin", {
+      email: req.email,
+      password: req.password,
+    });
+    return signinResp;
+  } catch (error) {
+    console.error("Error during signin request:", error);
+    throw error;
+  }
+}
 
 export default function SignIn() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="rounded-md">
       <div className="flex h-screen justify-center">
@@ -16,6 +43,10 @@ export default function SignIn() {
               id="emailfield"
               placeholder="Enter Email ID"
               className="placeholder:text-muted-foreground h-10 rounded-md border focus:outline-green-600"
+              onChange={(e) => {
+                e.preventDefault();
+                setEmail(e.target.value);
+              }}
             />
           </div>
           <div className="flex flex-col">
@@ -28,9 +59,25 @@ export default function SignIn() {
               id="passField"
               placeholder="Enter Password"
               className="placeholder:text-muted-foreground h-10 rounded-md border focus:outline-green-600"
+              onChange={(e) => {
+                e.preventDefault();
+                setPassword(e.target.value);
+              }}
             />
           </div>
-          <button className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2">
+          <button
+            className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+            onClick={async () => {
+              const res = await signin({ email, password });
+              console.log(res.status);
+              if (res.status == 200) {
+                router.push("/");
+              } else {
+                router.push("/signup");
+              }
+              console.log(res);
+            }}
+          >
             Login
           </button>
           <div className="text-center text-sm">
