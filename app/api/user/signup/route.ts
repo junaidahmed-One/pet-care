@@ -1,6 +1,7 @@
 import prisma from "@/db";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import bcrypt from "bcryptjs";
 
 const user_signup_schema = z.object({
   fullname: z.string(),
@@ -24,11 +25,14 @@ export async function POST(req: NextRequest) {
   console.log(reqBody.data);
   const { email, password, fullname } = reqBody.data;
 
+  const hash_salt = await bcrypt.genSalt(10);
+  const hashed_password = await bcrypt.hash(password, hash_salt);
+
   try {
     const userData = await prisma.user.create({
       data: {
         email,
-        password,
+        password: hashed_password,
         fullname,
       },
     });
