@@ -70,11 +70,11 @@ export default function SignIn() {
             className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={async () => {
               const res: any = await signin({ email, password });
-              console.log(res.status);
+
+              toast.success("Signin in...", {
+                duration: 1500,
+              });
               if (res.status == 200) {
-                toast.success("Signin in...", {
-                  duration: 1500,
-                });
                 router.push("/inprogress");
               } else {
                 toast.error("Error Signin in...");
