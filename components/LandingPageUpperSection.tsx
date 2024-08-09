@@ -23,13 +23,13 @@ export default function LandingPageUpperSection() {
           <span className="text-2xl font-bold text-white">PetCare</span>
         </div>
         <nav className="hidden items-center space-x-4 sm:flex">
-          <Link href={"#"} className="text-md text-white hover:underline">
+          <Link href={"/signup"} className="text-md text-white hover:underline">
             About
           </Link>
-          <Link href={"#"} className="text-md text-white hover:underline">
+          <Link href={"/signup"} className="text-md text-white hover:underline">
             Services
           </Link>
-          <Link href={"#"} className="text-md text-white hover:underline">
+          <Link href={"/signup"} className="text-md text-white hover:underline">
             Pet Food
           </Link>
           <button
@@ -65,13 +65,16 @@ export default function LandingPageUpperSection() {
       </div>
       {isMenuOpen && (
         <div className="mt-2 flex flex-col space-y-2 sm:hidden">
-          <Link href={"#"} className="text-md text-white hover:underline">
+          <Link href={"/signup"} className="text-md text-white hover:underline">
             About
           </Link>
-          <Link href={"#"} className="text-md text-white hover:underline">
+          <Link
+            href={"/inprogress"}
+            className="text-md text-white hover:underline"
+          >
             Services
           </Link>
-          <Link href={"#"} className="text-md text-white hover:underline">
+          <Link href={"/signup"} className="text-md text-white hover:underline">
             Pet Food
           </Link>
           <button
@@ -100,7 +103,12 @@ export default function LandingPageUpperSection() {
             >
               Get Started
             </button>
-            <button className="rounded-md border px-4 py-2 text-white">
+            <button
+              className="rounded-md border px-4 py-2 text-white"
+              onClick={() => {
+                router.push("/signup");
+              }}
+            >
               Learn More
             </button>
           </div>

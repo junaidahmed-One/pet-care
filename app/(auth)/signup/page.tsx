@@ -93,7 +93,7 @@ export default function SignUp() {
                 toast.success("Signing in...", {
                   duration: 2000,
                 });
-                router.push("/signin");
+                router.push("/in-progress");
               } else {
                 toast.error("Error signing in! Please try again...");
               }

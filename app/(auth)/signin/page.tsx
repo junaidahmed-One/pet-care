@@ -75,6 +75,7 @@ export default function SignIn() {
                 toast.success("Signin in...", {
                   duration: 1500,
                 });
+                router.push("/inprogress");
               } else {
                 toast.error("Error Signin in...");
               }
