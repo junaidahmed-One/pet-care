@@ -87,11 +87,8 @@ export default function SignUp() {
           <button
             className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm italic text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={async () => {
+              toast.success("Signing in...");
               const res: any = await addData({ fullname, email, password });
-
-              toast.success("Signing in...", {
-                duration: 2000,
-              });
               if (res.status == 201) {
                 router.push("/inprogress");
               } else {
