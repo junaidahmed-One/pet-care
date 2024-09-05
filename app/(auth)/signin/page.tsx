@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -11,21 +12,22 @@ interface SigninRequestType {
   password: string;
 }
 
-async function signin(req: SigninRequestType) {
-  try {
-    const signinResp = await axios.post("/api/user/signin", {
-      email: req.email,
-      password: req.password,
-    });
-    return signinResp;
-  } catch (error) {
-    console.error("Error during signin request:", error);
-    return error;
+async function Signin(req: SigninRequestType) {
+  const res = await signIn("credentials", {
+    redirect: false,
+    email: req.email,
+    password: req.password,
+  });
+
+  if (res?.error) {
+    toast.error("Error signing in... Please try again!");
+  } else {
+    toast.success("Signing in...");
+    window.location.href = "/inprogress";
   }
 }
 
 export default function SignIn() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -69,16 +71,7 @@ export default function SignIn() {
           <button
             className="text-md items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm italic text-white shadow transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={async () => {
-              toast.success("Signin in...", {
-                duration: 1500,
-              });
-              const res: any = await signin({ email, password });
-              if (res.status == 200) {
-                router.push("/inprogress");
-              } else {
-                toast.error("Error Signin in...");
-              }
-              console.log(res);
+              Signin({ email, password });
             }}
           >
             Login
