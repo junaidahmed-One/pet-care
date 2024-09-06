@@ -12,7 +12,7 @@ export default function InProgress() {
         <div className="text-center">
           <h1 className="text-2xl font-bold">Welcome, {session.user?.name}!</h1>
           <button
-            onClick={() => signOut()}
+            onClick={() => signOut({ callbackUrl: "/signin" })}
             className="mt-4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
           >
             Sign out
