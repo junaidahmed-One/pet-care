@@ -14,7 +14,7 @@ interface RequestType {
 
 async function addData(req: RequestType) {
   try {
-    const signupResp = await axios.post("/api/user/signup", {
+    const signupResp = await axios.post("/api/auth/user/signup", {
       email: req.email,
       password: req.password,
       fullname: req.fullname,
